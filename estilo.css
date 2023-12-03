@@ -1,0 +1,25 @@
+.casaBot {
+  display: grid;
+  grid-template-columns: 120px 120px 120px;
+  grid-template-rows: 120px 120px 120px;
+  justify-content: center;
+}
+
+.casaUser {
+  display: grid;
+  grid-template-columns: 120px 120px 120px;
+  grid-template-rows: 120px 120px 120px;
+  justify-content: center;
+}
+.box {
+  background-color: rgb(190, 233, 233);
+
+  border-style: solid;
+  border-radius: 5px;
+}
+
+body {
+  background-image: url(https://images7.alphacoders.com/124/1246454.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
