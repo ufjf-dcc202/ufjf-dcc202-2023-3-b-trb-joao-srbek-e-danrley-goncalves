@@ -3,7 +3,14 @@
 }
 
 .casaUser {
-  position: relative;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100%;
 }
 
 #divB1 {
@@ -14,6 +21,8 @@
 }
 #divU1 {
   display: grid;
+  grid-row: 1;
+  grid-column: 2;
   grid-template-columns: 90px 90px 90px;
   grid-template-rows: 90px 90px 90px;
   justify-content: center;
@@ -32,14 +41,17 @@
     border-radius: 5px;
     border-width: 2px;
     width: 100%;
-
+   
 }
-.box{
+#box{
+  grid-row: 1;
+  grid-column: 1;
     background-color: rgb(190, 233, 233);
     border-style: solid;
     border-radius: 5px;
     border-width: 2px;
-    width: 100%;
+    width: 100px;
+    height: 100px;
 }
 .dadoUser {
   justify-content: flex-start;
@@ -54,6 +66,7 @@ body {
 }
 #divU2 {
   display: grid;
+  background-color: beige;
   grid-template-columns: 90px 90px 90px;
   grid-template-rows: 90px 90px 90px;
   justify-content: left;
