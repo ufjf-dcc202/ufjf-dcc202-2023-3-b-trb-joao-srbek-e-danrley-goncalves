@@ -23,6 +23,8 @@
   margin-right: 0px;
   width: 10px;
   height: 10px;
+  position: relative;
+  left: 20px;
 }
 
 .dadoCtn {
