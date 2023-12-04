@@ -9,17 +9,25 @@
 }
 
 .tabela tbody td {
-  background-color: rgb(190, 233, 233);
+  background-color: rgba(190, 233, 233, 0.8);
   border-style: solid;
   border-radius: 5px;
   border-width: 2px;
   width: 80px;
   height: 80px;
 }
+.tabela #soma td{
+  background-color: transparent;
+  border: 0px;
+  border-radius: 5px;
+  border-width: 2px;
+  width: 10px;
+  height: 10px;
+}
 .dadoCtn {
   grid-row: 1;
   grid-column: 1;
-  background-color: rgb(190, 233, 233);
+  background-color: rgba(190, 233, 233, 0.8);
   border-style: solid;
   border-radius: 5px;
   border-width: 2px;
