@@ -1,6 +1,11 @@
-import{giraDado,jogadaBot, trocaQuemJoga} from"./logicaDoJogo.js"
-const casasDoBot = document.getElementById('tabelaBot');
-const casasDoUser = document.getElementById('tabelaUser');
+import{trocaQuemJoga,jogadaPlayerAtual} from"./logicaDoJogo.js"
+
+let iniciarJogo = document.getElementById('btnIniciar'); 
+
+iniciarJogo.addEventListener('click', function() {
+    let trocaTurno = trocaQuemJoga();
+    let jogadaAcontece = jogadaPlayerAtual();
+});
 
 
 

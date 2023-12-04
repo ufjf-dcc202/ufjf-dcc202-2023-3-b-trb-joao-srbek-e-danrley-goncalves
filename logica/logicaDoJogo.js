@@ -13,15 +13,17 @@ btn.addEventListener('click', function(){
 });
 
 let player = {
-  nome: "user",
+  nome: 'bot',
   operacao1: function giraDado() {
     return Math.floor(Math.random() * 6) + 1;
   },
   operacao2: function trocaQuemJoga(nome) {
     if (nome == user) {
-      nome = "bot";
+        return nome;
+        nome = "bot";
     } else {
-      nome = "user";
+        return nome;
+        nome = "user";
     }
   },
   operacao3: function jogadaPlayerAtual(){
@@ -31,6 +33,7 @@ let player = {
         let tds = table.getElementsByTagName('td');
         let randomTd = tds[Math.floor(Math.random() * tds.length)];
         randomTd.innerHTML = dado;
+        randomTd.style.color = "white";
     }else{
         
     }
@@ -47,4 +50,4 @@ function iniciaJogo(){
     }
 }
 
-export { giraDado, trocaQuemJoga, jogadaPlayerAtual};
+export {trocaQuemJoga, jogadaPlayerAtual};
