@@ -20,12 +20,11 @@
   justify-content: center;
 }
 #divU1 {
-  display: grid;
-  grid-row: 1;
-  grid-column: 2;
-  grid-template-columns: 90px 90px 90px;
+  
+  width:280px;
+  height: 280px;
+  background-color: red;
   grid-template-rows: 90px 90px 90px;
-  justify-content: center;
 }
 .boxBot {
   background-color: rgb(190, 233, 233);
@@ -40,8 +39,8 @@
     border-style: solid;
     border-radius: 5px;
     border-width: 2px;
-    width: 100%;
-   
+    width: 80px;
+   height: 80px;
 }
 #box{
   grid-row: 1;
