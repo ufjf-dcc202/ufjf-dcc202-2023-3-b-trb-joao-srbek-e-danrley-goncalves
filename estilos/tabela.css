@@ -9,7 +9,7 @@
 }
 
 .tabela tbody td {
-  background-color: rgba(190, 233, 233, 0.8);
+  background-color: rgba(228, 86, 100, 0.8);
   border-style: solid;
   border-radius: 5px;
   border-width: 2px;
@@ -21,13 +21,15 @@
   border: 0px;
   border-radius: 5px;
   border-width: 2px;
+  margin-right: 0px;
   width: 10px;
   height: 10px;
 }
+
 .dadoCtn {
   grid-row: 1;
   grid-column: 1;
-  background-color: rgba(190, 233, 233, 0.8);
+  background-color: rgba(70, 70, 70, 0.8);
   border-style: solid;
   border-radius: 5px;
   border-width: 2px;
@@ -37,4 +39,3 @@
   text-align: center;
   
 }
-
