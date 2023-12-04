@@ -1,72 +1,57 @@
-.casaBot{
-  position: relative;
+
+body {
+  background-image: url(https://images7.alphacoders.com/124/1246454.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 0px;
 }
 
-.casaUser {
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+.divisaoTela {
   display: grid;
   align-items: center;
   justify-content: center;
   align-content: center;
   justify-items: center;
-
+  width: 100%;
+  height: 100%;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 100%;
 }
 
-#divB1 {
-  display: grid;
-  grid-template-columns: 90px 90px 90px;
-  grid-template-rows: 90px 90px 90px;
-  justify-content: center;
-}
-#divU1 {
-  
-  width:280px;
+.tabela {
+  grid-row: 1;
+  grid-column: 2;
+
+  width: 280px;
   height: 280px;
-  background-color: red;
+  background-color: transparent;
   grid-template-rows: 90px 90px 90px;
 }
-.boxBot {
+
+.tabela tbody td {
   background-color: rgb(190, 233, 233);
   border-style: solid;
   border-radius: 5px;
   border-width: 2px;
-  width: 100%;
-  
+  width: 80px;
+  height: 80px;
 }
-.boxUser {
-    background-color: rgb(190, 233, 233);
-    border-style: solid;
-    border-radius: 5px;
-    border-width: 2px;
-    width: 80px;
-   height: 80px;
-}
-#box{
+#dadoCtn {
   grid-row: 1;
   grid-column: 1;
-    background-color: rgb(190, 233, 233);
-    border-style: solid;
-    border-radius: 5px;
-    border-width: 2px;
-    width: 100px;
-    height: 100px;
+  background-color: rgb(190, 233, 233);
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 2px;
+  width: 100px;
+  height: 100px;
 }
-.dadoUser {
-  justify-content: flex-start;
-  display: grid;
-  grid-template-columns: 90px 90px 90px;
-  grid-template-rows: 90px 90px 90px;
-}
-body {
-  background-image: url(https://images7.alphacoders.com/124/1246454.jpg);
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-#divU2 {
-  display: grid;
-  background-color: beige;
-  grid-template-columns: 90px 90px 90px;
-  grid-template-rows: 90px 90px 90px;
-  justify-content: left;
-}
+
