@@ -23,3 +23,15 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 100%;
   }
+.button{
+    background-color: rgba(111, 19, 129, 0.9);
+    border-radius: 15px;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    color: white;
+}
+
+h1{
+background-color: transparent;
+}
