@@ -1,25 +1,60 @@
-.casaBot {
-  display: grid;
-  grid-template-columns: 120px 120px 120px;
-  grid-template-rows: 120px 120px 120px;
-  justify-content: center;
+.casaBot{
+  position: relative;
 }
 
 .casaUser {
+  position: relative;
+}
+
+#divB1 {
   display: grid;
-  grid-template-columns: 120px 120px 120px;
-  grid-template-rows: 120px 120px 120px;
+  grid-template-columns: 90px 90px 90px;
+  grid-template-rows: 90px 90px 90px;
   justify-content: center;
 }
-.box {
+#divU1 {
+  display: grid;
+  grid-template-columns: 90px 90px 90px;
+  grid-template-rows: 90px 90px 90px;
+  justify-content: center;
+}
+.boxBot {
   background-color: rgb(190, 233, 233);
-
   border-style: solid;
   border-radius: 5px;
+  border-width: 2px;
+  width: 100%;
+  
 }
+.boxUser {
+    background-color: rgb(190, 233, 233);
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    width: 100%;
 
+}
+.box{
+    background-color: rgb(190, 233, 233);
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    width: 100%;
+}
+.dadoUser {
+  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 90px 90px 90px;
+  grid-template-rows: 90px 90px 90px;
+}
 body {
   background-image: url(https://images7.alphacoders.com/124/1246454.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
+}
+#divU2 {
+  display: grid;
+  grid-template-columns: 90px 90px 90px;
+  grid-template-rows: 90px 90px 90px;
+  justify-content: left;
 }
