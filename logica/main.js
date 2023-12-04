@@ -1,14 +1,7 @@
-import{giraDado,jogadaBot} from"./logicaDoJogo.js"
-const tableBot = document.querySelector('#')
-var botJoga = document.getElementsByClassName('.boxBot');
+import{giraDado,jogadaBot, trocaQuemJoga} from"./logicaDoJogo.js"
+const casasDoBot = document.getElementById('tabelaBot');
+const casasDoUser = document.getElementById('tabelaUser');
 
-botJoga.addEventListener('click', adicionaNumeroDoBot);
+let turno = trocaQuemJoga();
+let botJoga = document.getElementsByClassName('.');
 
-let dadoDoBot=giraDado();
-let espacoEscolhidoBot=jogadaBot();
-
-function adicionaNumeroDoBot(dadoDoBot){
-    const tr=document.createElement("tr");
-    tr.textContent = texto;
-    tableBot.appendChild(tr);
-}
