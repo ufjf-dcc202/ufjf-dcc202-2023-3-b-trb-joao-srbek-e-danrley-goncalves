@@ -1,0 +1,25 @@
+body {
+    background-image: url(https://images7.alphacoders.com/124/1246454.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 0px;
+  }
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+  }
+.divisaoTela {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100%;
+  }

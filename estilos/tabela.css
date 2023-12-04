@@ -1,0 +1,29 @@
+.tabela {
+  grid-row: 1;
+  grid-column: 2;
+
+  width: 280px;
+  height: 280px;
+  background-color: transparent;
+  grid-template-rows: 90px 90px 90px;
+}
+
+.tabela tbody td {
+  background-color: rgb(190, 233, 233);
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 2px;
+  width: 80px;
+  height: 80px;
+}
+.dadoCtn {
+  grid-row: 1;
+  grid-column: 1;
+  background-color: rgb(190, 233, 233);
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 2px;
+  width: 100px;
+  height: 100px;
+}
+
