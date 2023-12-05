@@ -24,14 +24,27 @@ body {
     grid-template-rows: 100%;
   }
 .button{
-    background-color: rgba(111, 19, 129, 0.9);
-    border-radius: 15px;
+    background-color: rgba(165, 81, 182, 0.9);
+    border-radius: 85px;
+    border: 90%;
     width: 100px;
     height: 50px;
     text-align: center;
     color: white;
+    font-size: large;
+    font-style: normal;
+    font-family: fantasy;
+    border-style: double;
+}
+ #btnUser {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  border-radius: 1px;
+  border-style: none;
 }
 
 h1{
 background-color: transparent;
+
 }
