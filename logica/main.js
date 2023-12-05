@@ -1,11 +1,9 @@
-import{trocaQuemJoga,jogadaPlayerAtual} from"./logicaDoJogo.js"
+import{player} from"./logicaDoJogo.js";
 
-let iniciarJogo = document.getElementById('btnIniciar'); 
+let turno = player.nome;
+player.operacaoTroca(turno);
+player.operacaoJogada;
 
-iniciarJogo.addEventListener('click', function() {
-    let trocaTurno = trocaQuemJoga();
-    let jogadaAcontece = jogadaPlayerAtual();
-});
 
 
 
