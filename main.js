@@ -1,4 +1,4 @@
-import{giraDado,getDado} from "./logicaDoJogo.js";
+import{giraDado,getDado, trocaTurno} from "./logicaDoJogo.js";
 
 /*const botaoIniciar = document.querySelector("#btnIniciar");
 botaoIniciar.addEventListener("click", giraDado());*/

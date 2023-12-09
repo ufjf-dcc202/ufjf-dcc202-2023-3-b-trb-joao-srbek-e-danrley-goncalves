@@ -1,5 +1,15 @@
-const tabuleiroPlayer = [[],[],[]];
-const tabuleiroBot = [[],[],[]];
+const tabuleiroPlayer = [[0,0,0],[0,0,0],[0,0,0]];
+const tabuleiroBot = [[0,1,0],[2,0,0],[0,0,0]];
+
+let turnoJogador= false;
+
+/*function trocaTurno(){
+    if (turnoJogador === true) {
+      turnoJogador = false;
+    }else{
+      turnoJogador = true;
+    }
+}*/
 
 //const dado = document.querySelector("dado");
 
@@ -13,4 +23,5 @@ function getDado(){
 }
 
 
-export{giraDado,getDado};
+
+export{giraDado,getDado,trocaTurno};
