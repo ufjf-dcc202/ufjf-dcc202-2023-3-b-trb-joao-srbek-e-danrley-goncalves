@@ -45,4 +45,16 @@ function jogada(valor) {
   }
 }
 
-export { giraDado, getDado,getTabuleiro,jogada};
+function comparaElimina() {
+
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        if (tabuleiroPlayer.player[j][i] === tabuleiroPlayer.bot[j][i]) {
+          tabuleiroPlayer.player[j][i] = 0;
+          tabuleiroPlayer.bot[j][i] = 0;
+        }
+      }
+    }
+  }
+
+export { giraDado, getDado,getTabuleiro,jogada, comparaElimina};
