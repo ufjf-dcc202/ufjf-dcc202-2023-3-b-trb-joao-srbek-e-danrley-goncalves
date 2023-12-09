@@ -1,7 +1,15 @@
-const tabuleiroPlayer = [[0,0,0],[0,0,0],[0,0,0]];
-const tabuleiroBot = [[0,1,0],[2,0,0],[0,0,0]];
-
-let turnoJogador= false;
+const tabuleiro = {
+  'player':[
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0]
+  ],
+  'bot': [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0]
+  ]
+}
 
 /*function trocaTurno(){
     if (turnoJogador === true) {
@@ -13,15 +21,28 @@ let turnoJogador= false;
 
 //const dado = document.querySelector("dado");
 
-function giraDado(){
-  let valorDado = Math.floor(Math.random()*6)+1;
-   return valorDado;
+function getTabuleiro() {
+  return structuredClone(tabuleiro);
 }
 
-function getDado(){
-    return giraDado();
+function giraDado() {
+  let valorDado = Math.floor(Math.random() * 6) + 1;
+  return valorDado;
 }
 
+function getDado() {
+  return giraDado();
+}
 
+function jogada(valor) {
+  let linha;
+  let coluna;
+  linha = Math.floor(Math.random() * 3);
+  coluna = Math.floor(Math.random() * 3);
+  if (tabuleiro.bot[linha][coluna] === 0) {
+    tabuleiro.bot[linha][coluna] = valor;
+    return;
+  }
+}
 
-export{giraDado,getDado,trocaTurno};
+export { giraDado, getDado,getTabuleiro,jogada};
