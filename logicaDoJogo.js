@@ -1,9 +1,16 @@
-const tabuleiroPlayer = [[], [], []];
-const tabuleiroBot = [[], [], []];
+const tabuleiroPlayer = [[],[],[]];
+const tabuleiroBot = [[],[],[]];
+
 //const dado = document.querySelector("dado");
 
 function giraDado(){
-   return Math.floor(Math.random()*(6-1)+1);
+  let valorDado = Math.floor(Math.random()*6)+1;
+   return valorDado;
 }
 
-export{giraDado};
+function getDado(){
+    return giraDado();
+}
+
+
+export{giraDado,getDado};

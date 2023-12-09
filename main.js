@@ -1,8 +1,14 @@
-import{giraDado} from "./logicaDoJogo";
+import{giraDado,getDado} from "./logicaDoJogo.js";
 
-let dado=giraDado();
+/*const botaoIniciar = document.querySelector("#btnIniciar");
+botaoIniciar.addEventListener("click", giraDado());*/
+
+const dado = getDado();
+document.querySelector("#dado").textContent = dado;
 
 console.log(`${dado}`);
+
+
 
 
 
