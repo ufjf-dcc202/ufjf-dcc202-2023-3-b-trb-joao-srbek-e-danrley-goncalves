@@ -4,7 +4,7 @@ const btnIniciar = document.querySelector("#iniciar");
 const espacosJogador = document.querySelectorAll(".espacoUser");
 const espacosBot = document.querySelectorAll(".espacoBot");
 
-let turno = false;
+let turno = true;
 let dado = giraDado();
 let vencedor = "";
 
@@ -14,13 +14,6 @@ btnIniciar.addEventListener("click", function() {
     this.disabled = true;
 });
 
-const joga = document.querySelectorAll(".btnUser");
-joga.forEach((btn) => {
-    btn.addEventListener("click", function(event){
-        espacosJogador[event.target.dataset.espacos].textContent = dado;
-        console.log(event.target.dataset.espacos);
-    });
-});
 
 console.log(`${dado}`);
 function alocaDado(){
