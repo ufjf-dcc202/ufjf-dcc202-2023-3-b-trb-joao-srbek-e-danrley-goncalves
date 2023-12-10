@@ -26,12 +26,12 @@ function alocaDado(){
     }
 }
 
-function mostraNaTela(){
+function mostraNaTela(){    
         const tabuleiro = getTabuleiro();
         alocaDado();
         jogada(dado, espacosBot,espacosJogador, turno);
-        turno = !turno;
-        dado = giraDado();
+        console.log(`${turno}`);
+        dado=giraDado();
 }
 
 /*function quemVence(){

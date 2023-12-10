@@ -11,13 +11,13 @@ const tabuleiro = {
   ]
 }
 
-/*function trocaTurno(){
-    if (turnoJogador === true) {
-      turnoJogador = false;
+function trocaTurno(vezPlayer){
+    if (vezPlayer === true) {
+      vezPlayer = false;
     }else{
-      turnoJogador = true;
+      vezPlayer = true;
     }
-}*/
+}
 
 //const dado = document.querySelector("dado");
 
@@ -43,10 +43,17 @@ function jogada(valor, espacos,espacos2, turnoJogador) {
 
     let index = linha * 3 + coluna;
     espacos[index].textContent = tabuleiro.bot[linha][coluna];
+    trocaTurno(turnoJogador);
   }else{
     const joga = document.querySelectorAll(".btnUser");
     joga.forEach((btn) => {
+      btn.disabled = false;
     btn.addEventListener("click", function(event){
+        joga.forEach((outroBtn) => {
+          if(outroBtn !==event.target){
+            outroBtn.disabled = true;
+          }
+        });
         espacos2[event.target.dataset.espacos].textContent = valor;
         console.log(event.target.dataset.espacos);
     });
