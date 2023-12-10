@@ -1,13 +1,13 @@
 const tabuleiro = {
-  'player':[
-  [0, 0, 0],
-  [0, 0, 0],
-  [0, 0, 0]
-],
-'bot': [
-  [0, 0, 0],
-  [0, 0, 0],
-  [0, 0, 0]
+  'bot': [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+  ],
+  'player': [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
 ]
 }
 
@@ -53,7 +53,9 @@ function jogada(valor, espacos,espacos2, turnoJogador) {
             outroBtn.disabled = true;
           }
         });
-        switch(event.target.dataset.espacos){
+        let espacosNum = event.target.dataset.espacos;
+        let espacosInt = parseInt(espacosNum);
+        switch(espacosInt){
           case 0: tabuleiro.player[0][0] = valor;
           espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[0][0];
           break;
@@ -89,37 +91,38 @@ function jogada(valor, espacos,espacos2, turnoJogador) {
 
 function somaDasColunas(posicao,somaColuna,turnoAtual) {
   if(turnoAtual === false){
-      for(let j=0;j<3;j++){
-        somaColuna = 0;
-        if(tabuleiro.bot[0][j]!==0 || tabuleiro.bot[1][j]!==0 || tabuleiro.bot[2][j]!==0){
-          if(tabuleiro.bot[0][j]===tabuleiro.bot[1][j]){
-            somaColuna = tabuleiro.bot[0][j]*2 + tabuleiro.bot[1][j]*2 + tabuleiro.bot[2][j];
-          }else if(tabuleiro.bot[0][j]===tabuleiro.bot[2][j]){
-            somaColuna = tabuleiro.bot[0][j]*2 + tabuleiro.bot[1][j] + tabuleiro.bot[2][j]*2;
-          }else if(tabuleiro.bot[1][j]===tabuleiro.bot[2][j]){
-            somaColuna = tabuleiro.bot[0][j] + tabuleiro.bot[1][j]*2 + tabuleiro.bot[2][j]*2;
-          }else if(tabuleiro.bot[0][j]===tabuleiro.bot[1][j]===tabuleiro.bot[2][j]){
-            somaColuna = tabuleiro.bot[0][j]*3 + tabuleiro.bot[1][j]*3 + tabuleiro.bot[2][j]*3;
-          }else{
+    for(let j=0;j<3;j++){
+      somaColuna = 0;
+      if(tabuleiro.bot[0][j]!==0 || tabuleiro.bot[1][j]!==0 || tabuleiro.bot[2][j]!==0){
+        if(tabuleiro.bot[0][j]===tabuleiro.bot[1][j] && tabuleiro.bot[0][j]===tabuleiro.bot[2][j] && tabuleiro.bot[1][j]===tabuleiro.bot[2][j]){
+          somaColuna = tabuleiro.bot[0][j]*3 + tabuleiro.bot[1][j]*3 + tabuleiro.bot[2][j]*3;
+        }else if(tabuleiro.bot[0][j]===tabuleiro.bot[2][j]){
+          somaColuna = tabuleiro.bot[0][j]*2 + tabuleiro.bot[1][j] + tabuleiro.bot[2][j]*2;
+        }else if(tabuleiro.bot[1][j]===tabuleiro.bot[2][j]){
+          somaColuna = tabuleiro.bot[0][j] + tabuleiro.bot[1][j]*2 + tabuleiro.bot[2][j]*2;
+        }else if(tabuleiro.bot[0][j]===tabuleiro.bot[1][j]){
+          somaColuna = tabuleiro.bot[0][j]*2 + tabuleiro.bot[1][j]*2 + tabuleiro.bot[2][j];
+        }else{
           somaColuna = tabuleiro.bot[0][j] + tabuleiro.bot[1][j] + tabuleiro.bot[2][j];
-          }
         }
-      posicao[j].textContent= somaColuna;
       }
-  }else{
+    posicao[j].textContent= somaColuna;
+    }
+  }
+  if(turnoAtual === true){
     for(let j=0;j<3;j++){
       somaColuna = 0;
       if(tabuleiro.player[0][j]!==0 || tabuleiro.player[1][j]!==0 || tabuleiro.player[2][j]!==0){
-        if(tabuleiro.player[0][j]===tabuleiro.player[1][j]){
-          somaColuna = tabuleiro.player[0][j]*2 + tabuleiro.player[1][j]*2 + tabuleiro.player[2][j];
-        }else if(tabuleiro.player[0][j]===tabuleiro.player[2][j]){
+        if(tabuleiro.player[0][j]===tabuleiro.player[1][j] && tabuleiro.player[0][j]===tabuleiro.player[2][j] && tabuleiro.player[1][j]===tabuleiro.player[2][j]){
+          somaColuna = tabuleiro.player[0][j]*3 + tabuleiro.player[1][j]*3 + tabuleiro.player[2][j]*3;
+        }else if(tabuleiro.player[0][j]===tabuleiro.player[2][j]){ 
           somaColuna = tabuleiro.player[0][j]*2 + tabuleiro.player[1][j] + tabuleiro.player[2][j]*2;
         }else if(tabuleiro.player[1][j]===tabuleiro.player[2][j]){
           somaColuna = tabuleiro.player[0][j] + tabuleiro.player[1][j]*2 + tabuleiro.player[2][j]*2;
-        }else if(tabuleiro.player[0][j]===tabuleiro.player[1][j]===tabuleiro.player[2][j]){
-          somaColuna = tabuleiro.player[0][j]*3 + tabuleiro.player[1][j]*3 + tabuleiro.player[2][j]*3;
+        }else if(tabuleiro.player[0][j]===tabuleiro.player[1][j]){
+          somaColuna = tabuleiro.player[0][j]*2 + tabuleiro.player[1][j]*2 + tabuleiro.player[2][j];
         }else{
-        somaColuna = tabuleiro.player[0][j] + tabuleiro.player[1][j] + tabuleiro.player[2][j];
+          somaColuna = tabuleiro.player[0][j] + tabuleiro.player[1][j] + tabuleiro.player[2][j];
         }
       }
     posicao[j+3].textContent= somaColuna;
