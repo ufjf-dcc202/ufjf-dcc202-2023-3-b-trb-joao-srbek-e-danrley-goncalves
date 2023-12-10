@@ -4,19 +4,32 @@ const btnIniciar = document.querySelector("#iniciar");
 const espacosJogador = document.querySelectorAll(".espacoUser");
 const espacosBot = document.querySelectorAll(".espacoBot");
 
+let turno =false;
 let dado = giraDado();
-let turno = true;
-
-btnIniciar.addEventListener("click", mostraNaTela);
 
 
-//botaoIniciar.addEventListener("click", giraDado());
+btnIniciar.addEventListener("click", function() {
+    mostraNaTela();
+    this.disabled = true;
+});
+
+
+
 console.log(`${dado}`);
-
+function alocaDado(){
+    if(turno === false){
+        document.querySelector("#dado1").textContent = null; 
+        document.querySelector("#dado").textContent = dado;
+    }else{
+        document.querySelector("#dado").textContent = null;
+        document.querySelector("#dado1").textContent = dado;
+    }
+}
 
 function mostraNaTela(){
-    document.querySelector("#dado").textContent = dado;
     const tabuleiro = getTabuleiro();
-    jogada(dado, espacosBot);
-    dado = giraDado();  
+    alocaDado();
+    jogada(dado, espacosBot,espacosJogador, turno);
+    turno = !turno;
+    dado = giraDado();
 }
