@@ -30,31 +30,31 @@ function giraDado() {
   return valorDado;
 }
 
-function getDado() {
-  return giraDado();
-}
-
-function jogada(valor) {
+function jogada(valor, espacos) {
   let linha;
   let coluna;
-  linha = Math.floor(Math.random() * 3);
-  coluna = Math.floor(Math.random() * 3);
-  if (tabuleiro.bot[linha][coluna] === 0) {
-    tabuleiro.bot[linha][coluna] = valor;
-    return;
-  }
+  do{
+    linha = Math.floor(Math.random() * 3);
+    coluna = Math.floor(Math.random() * 3);
+  }while (tabuleiro.bot[linha][coluna] !== 0);
+
+  tabuleiro.bot[linha][coluna] = valor;
+
+  let index = linha * 3 + coluna;
+  espacos[index].textContent = tabuleiro.bot[linha][coluna];
 }
 
-function comparaElimina() {
+function comparaElimina(turnoJogador) {
 
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
-        if (tabuleiroPlayer.player[j][i] === tabuleiroPlayer.bot[j][i]) {
-          tabuleiroPlayer.player[j][i] = 0;
-          tabuleiroPlayer.bot[j][i] = 0;
+        if (tabuleiro.player[j][i] === tabuleiro.bot[j][i] && turnoJogador===true) {
+          tabuleiro.bot[j][i] = 0;
         }
+        if (tabuleiro.bot[j][i] === tabuleiro.player[j][i] && turnoJogador===false) {
+            tabuleiro.player[j][i] = 0;
       }
     }
   }
-
-export { giraDado, getDado,getTabuleiro,jogada, comparaElimina};
+}
+export { giraDado,getTabuleiro,jogada, comparaElimina};

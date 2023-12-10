@@ -1,28 +1,24 @@
-import {giraDado,getDado,getTabuleiro,jogada} from "./logicaDoJogo.js";
+import {giraDado,getTabuleiro,jogada, comparaElimina} from "./logicaDoJogo.js";
 
-/*const botaoIniciar = document.querySelector("#btnIniciar");
-botaoIniciar.addEventListener("click", giraDado());*/
+const btnIniciar = document.querySelector("#iniciar");
+const espacosJogador = document.querySelectorAll(".espacoUser");
+const espacosBot = document.querySelectorAll(".espacoBot");
 
-const tabuleiro = getTabuleiro();
+let dado = giraDado();
 let turno = true;
-const dado = getDado();
-const celulas = document.querySelectorAll(".espacoUser");
 
-document.querySelector("#dado").textContent = dado;
+btnIniciar.addEventListener("click", acao);
 
-celulas.forEach((celula) => {
-  celula.addEventListener("click", function () {
-    if (celula.textContent === 0) {
-      celula.textContent = giraDado();
-    } else {
-      return;
-    }
-  });
-});
 
+//botaoIniciar.addEventListener("click", giraDado());
 console.log(`${dado}`);
-/*function tela(){
-    const tabuleiroBot = getTabuleiroBot();
-    const tabuleiroPlayer = getTabuleiroPlayer();
 
-}*/
+function acao(event){
+    mostraNaTela();
+}
+function mostraNaTela(){
+    document.querySelector("#dado").textContent = dado;
+    const tabuleiro = getTabuleiro();
+    jogada(dado, espacosBot);
+    dado = giraDado();  
+}
