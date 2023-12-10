@@ -7,15 +7,13 @@ const espacosBot = document.querySelectorAll(".espacoBot");
 let dado = giraDado();
 let turno = true;
 
-btnIniciar.addEventListener("click", acao);
+btnIniciar.addEventListener("click", mostraNaTela);
 
 
 //botaoIniciar.addEventListener("click", giraDado());
 console.log(`${dado}`);
 
-function acao(event){
-    mostraNaTela();
-}
+
 function mostraNaTela(){
     document.querySelector("#dado").textContent = dado;
     const tabuleiro = getTabuleiro();
