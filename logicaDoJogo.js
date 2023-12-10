@@ -44,8 +44,7 @@ function jogada(valor, espacos,espacos2, turnoJogador) {
     let index = linha * 3 + coluna;
     espacos[index].textContent = tabuleiro.bot[linha][coluna];
   }else{
-    const btnPlayer = document.querySelectorAll(".btnUser");
-    btnPlayer.addEventListener("click", );
+    
   }
 }
 
