@@ -3,21 +3,21 @@ const tabuleiro = {
   [0, 0, 0],
   [0, 0, 0],
   [0, 0, 0]
-  ],
-  'bot': [
+],
+'bot': [
   [0, 0, 0],
   [0, 0, 0],
   [0, 0, 0]
-  ]
+]
 }
 
-function trocaTurno(vezPlayer){
+/*function trocaTurno(vezPlayer){
     if (vezPlayer === true) {
       vezPlayer = false;
     }else{
       vezPlayer = true;
     }
-}
+}*/
 
 //const dado = document.querySelector("dado");
 
@@ -43,7 +43,6 @@ function jogada(valor, espacos,espacos2, turnoJogador) {
 
     let index = linha * 3 + coluna;
     espacos[index].textContent = tabuleiro.bot[linha][coluna];
-    trocaTurno(turnoJogador);
   }else{
     const joga = document.querySelectorAll(".btnUser");
     joga.forEach((btn) => {
@@ -54,10 +53,77 @@ function jogada(valor, espacos,espacos2, turnoJogador) {
             outroBtn.disabled = true;
           }
         });
-        espacos2[event.target.dataset.espacos].textContent = valor;
-        console.log(event.target.dataset.espacos);
+        switch(event.target.dataset.espacos){
+          case 0: tabuleiro.player[0][0] = valor;
+          espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[0][0];
+          break;
+          case 1: tabuleiro.player[0][1] = valor;
+          espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[0][1];
+          break;
+          case 2: tabuleiro.player[0][2] = valor;
+          espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[0][2];
+          break;
+          case 3: tabuleiro.player[1][0] = valor;
+          espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[1][0];
+          break;
+          case 4: tabuleiro.player[1][1] = valor;
+          espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[1][1];
+          break;
+          case 5: tabuleiro.player[1][2] = valor;
+          espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[1][2];
+          break;
+          case 6: tabuleiro.player[2][0] = valor;
+          espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[2][0];
+          break;
+          case 7: tabuleiro.player[2][1] = valor;
+          espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[2][1];
+          break;
+          default: tabuleiro.player[2][2] = valor;
+          espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[2][2];
+          break;
+        }
     });
 });
+  }
+}
+
+function somaDasColunas(posicao,somaColuna,turnoAtual) {
+  if(turnoAtual === false){
+      for(let j=0;j<3;j++){
+        somaColuna = 0;
+        if(tabuleiro.bot[0][j]!==0 || tabuleiro.bot[1][j]!==0 || tabuleiro.bot[2][j]!==0){
+          if(tabuleiro.bot[0][j]===tabuleiro.bot[1][j]){
+            somaColuna = tabuleiro.bot[0][j]*2 + tabuleiro.bot[1][j]*2 + tabuleiro.bot[2][j];
+          }else if(tabuleiro.bot[0][j]===tabuleiro.bot[2][j]){
+            somaColuna = tabuleiro.bot[0][j]*2 + tabuleiro.bot[1][j] + tabuleiro.bot[2][j]*2;
+          }else if(tabuleiro.bot[1][j]===tabuleiro.bot[2][j]){
+            somaColuna = tabuleiro.bot[0][j] + tabuleiro.bot[1][j]*2 + tabuleiro.bot[2][j]*2;
+          }else if(tabuleiro.bot[0][j]===tabuleiro.bot[1][j]===tabuleiro.bot[2][j]){
+            somaColuna = tabuleiro.bot[0][j]*3 + tabuleiro.bot[1][j]*3 + tabuleiro.bot[2][j]*3;
+          }else{
+          somaColuna = tabuleiro.bot[0][j] + tabuleiro.bot[1][j] + tabuleiro.bot[2][j];
+          }
+        }
+      posicao[j].textContent= somaColuna;
+      }
+  }else{
+    for(let j=0;j<3;j++){
+      somaColuna = 0;
+      if(tabuleiro.player[0][j]!==0 || tabuleiro.player[1][j]!==0 || tabuleiro.player[2][j]!==0){
+        if(tabuleiro.player[0][j]===tabuleiro.player[1][j]){
+          somaColuna = tabuleiro.player[0][j]*2 + tabuleiro.player[1][j]*2 + tabuleiro.player[2][j];
+        }else if(tabuleiro.player[0][j]===tabuleiro.player[2][j]){
+          somaColuna = tabuleiro.player[0][j]*2 + tabuleiro.player[1][j] + tabuleiro.player[2][j]*2;
+        }else if(tabuleiro.player[1][j]===tabuleiro.player[2][j]){
+          somaColuna = tabuleiro.player[0][j] + tabuleiro.player[1][j]*2 + tabuleiro.player[2][j]*2;
+        }else if(tabuleiro.player[0][j]===tabuleiro.player[1][j]===tabuleiro.player[2][j]){
+          somaColuna = tabuleiro.player[0][j]*3 + tabuleiro.player[1][j]*3 + tabuleiro.player[2][j]*3;
+        }else{
+        somaColuna = tabuleiro.player[0][j] + tabuleiro.player[1][j] + tabuleiro.player[2][j];
+        }
+      }
+    posicao[j+3].textContent= somaColuna;
+    }
   }
 }
 
@@ -74,4 +140,4 @@ function comparaElimina(turnoJogador) {
     }
   }
 }
-export { giraDado,getTabuleiro,jogada, comparaElimina};
+export { giraDado,getTabuleiro,jogada,somaDasColunas,comparaElimina};

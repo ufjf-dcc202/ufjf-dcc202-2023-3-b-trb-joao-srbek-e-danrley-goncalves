@@ -1,21 +1,23 @@
-import {giraDado,getTabuleiro,jogada, comparaElimina} from "./logicaDoJogo.js";
+import {giraDado,getTabuleiro,jogada,somaDasColunas,comparaElimina} from "./logicaDoJogo.js";
 
 const btnIniciar = document.querySelector("#iniciar");
 const espacosJogador = document.querySelectorAll(".espacoUser");
 const espacosBot = document.querySelectorAll(".espacoBot");
+const espacoSomaC = document.querySelectorAll(".somas");
 
 let turno = true;
 let dado = giraDado();
 let vencedor = "";
+let somaCol=0;
 
 
 btnIniciar.addEventListener("click", function() {
     mostraNaTela();
-    this.disabled = true;
+    //this.disabled = true;
 });
 
 
-console.log(`${dado}`);
+//console.log(`${dado}`);
 function alocaDado(){
     if(turno === false){
         document.querySelector("#dado1").textContent = null; 
@@ -30,6 +32,8 @@ function mostraNaTela(){
         const tabuleiro = getTabuleiro();
         alocaDado();
         jogada(dado, espacosBot,espacosJogador, turno);
+        somaDasColunas(espacoSomaC,somaCol,turno);
+        turno = !turno;
         console.log(`${turno}`);
         dado=giraDado();
 }
