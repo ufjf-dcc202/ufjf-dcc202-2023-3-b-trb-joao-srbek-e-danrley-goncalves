@@ -5,6 +5,7 @@ const espacosBot = document.querySelectorAll(".espacoBot");
 const espacoSomaC = document.querySelectorAll(".somas");
 const somasT = document.querySelectorAll(".total");
 const btnIniciar = document.querySelector("#iniciar");
+const parag = document.querySelectorAll(".paragrafo");
 
 let vencedor = "";
 let turno = true;
@@ -15,7 +16,8 @@ let somaPlayer=0;
 
 btnIniciar.addEventListener("click", function() {
     mostraNaTela();
-    comparaElimina(espacosBot,espacosJogador,turno);
+    comparaElimina(espacosBot,parag,turno);
+    somaDasColunas(espacoSomaC,somasT,somaCol,somaBot,somaPlayer,turno);
 });
 
 function alocaDado(){
@@ -31,7 +33,7 @@ function alocaDado(){
 function mostraNaTela(){   
     const tabuleiro = getTabuleiro();
     alocaDado();
-    jogada(dado, espacosBot,espacosJogador, turno);
+    jogada(dado, espacosBot,parag, turno);
     somaDasColunas(espacoSomaC,somasT,somaCol,somaBot,somaPlayer,turno);
     turno = !turno;
     dado=giraDado();

@@ -55,6 +55,7 @@ function jogada(valor, espacos,espacos2, turnoJogador) {
         });
         let espacosNum = event.target.dataset.espacos;
         let espacosInt = parseInt(espacosNum);
+        console.log(`${espacosInt}`);
         switch(espacosInt){
           case 0: tabuleiro.player[0][0] = valor;
           espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[0][0];
@@ -123,13 +124,10 @@ function somaDasColunas(posicao,posiTotal,somaColuna,somaTotBot,somaTotPlayer,tu
         }else{
           somaColuna = tabuleiro.bot[0][j] + tabuleiro.bot[1][j] + tabuleiro.bot[2][j];
         }
-        somaTotBot += somaColuna;
-      posicao[j].textContent= somaColuna;
-      posiTotal[0].textContent = somaTotBot;
-      }else{
-        posicao[j].textContent= 0;
-        posiTotal[0].textContent = 0;
       }
+      somaTotBot += somaColuna;
+    posicao[j].textContent= somaColuna;
+    posiTotal[0].textContent = somaTotBot;
     }
   }else{
     for(let j=0;j<3;j++){
@@ -146,13 +144,10 @@ function somaDasColunas(posicao,posiTotal,somaColuna,somaTotBot,somaTotPlayer,tu
         }else{
           somaColuna = tabuleiro.player[0][j] + tabuleiro.player[1][j] + tabuleiro.player[2][j];
         }
-        somaTotPlayer += somaColuna;
-      posicao[j+3].textContent= somaColuna;
-      posiTotal[1].textContent = somaTotPlayer;
-      }else{
-        posicao[j+3].textContent= 0;
-        posiTotal[1].textContent = 0;
       }
+      somaTotPlayer += somaColuna;
+    posicao[j+3].textContent= somaColuna;
+    posiTotal[1].textContent = somaTotPlayer;
     }
   }
 }
@@ -163,7 +158,7 @@ function comparaElimina(localBot,localPlayer, turnoJoga) {
       if(tabuleiro.bot[xBot][yBot] === tabuleiro.player[i][yBot]){
         console.log(`${turnoJoga}`);
         tabuleiro.player[i][yBot] = 0;
-        localPlayer[i*3+yBot].textContent = 0;
+        localPlayer[i*3+yBot].textContent = null;
       }
     }
   }else{
