@@ -12,10 +12,10 @@
   border-style: solid;
   border-radius: 5px;
   border-width: 2px;
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
 }
-.tabela #soma td{
+.tabela #soma td {
   background-color: transparent;
   border: 0px;
   border-radius: 5px;
@@ -47,23 +47,28 @@
   justify-content: center;
   font-family: fantasy;
 }
-.espacoBot{
+.espacoBot {
   text-align: center;
   font-size: larger;
   font-family: fantasy;
 }
-.espacoUser{
+.espacoUser {
   text-align: center;
   font-size: larger;
   font-family: fantasy;
 }
-.somas{
+.somas {
   font-size: medium;
   font-family: fantasy;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+.win {
+  font-size: 30px;
+  font-family: cursive;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-.win{
-  font-size: 30px;
-  font-family: fantasy;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+.total{
+  color: rgb(247, 25, 162);
+  font-family: cursive;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
