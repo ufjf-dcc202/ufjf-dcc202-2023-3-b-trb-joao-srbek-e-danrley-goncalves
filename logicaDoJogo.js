@@ -17,7 +17,8 @@ let xBot=0;
 let yBot=0;
 let xPlayer=0;
 let yPlayer=0;
-
+let somaPc=0;
+let somaDoJogador=0; 
 //const dado = document.querySelector("dado");
 
 function getTabuleiro() {
@@ -126,6 +127,7 @@ function somaDasColunas(posicao,posiTotal,somaColuna,somaTotBot,somaTotPlayer,tu
         }
       }
       somaTotBot += somaColuna;
+      somaPc+=somaColuna;
     posicao[j].textContent= somaColuna;
     posiTotal[0].textContent = somaTotBot;
     }
@@ -146,6 +148,7 @@ function somaDasColunas(posicao,posiTotal,somaColuna,somaTotBot,somaTotPlayer,tu
         }
       }
       somaTotPlayer += somaColuna;
+      somaDoJogador+=somaColuna;
     posicao[j+3].textContent= somaColuna;
     posiTotal[1].textContent = somaTotPlayer;
     }
@@ -172,4 +175,28 @@ function comparaElimina(localBot,localPlayer, turnoJoga) {
   }
 }
 
-export {giraDado,getTabuleiro,jogada,somaDasColunas,comparaElimina};
+function quemVenceu(vence,lotadoBot,lotadoPlayer){
+  for(let i=0;i<3;i++){
+      for(let j=0;j<3;j++){
+          if(tabuleiro.bot[i][j]===null){
+              lotadoBot=false;
+          }
+          if(tabuleiro.player[i][j]===0){
+              lotadoPlayer=false;
+          }
+      }
+  }
+  if(lotadoBot===true || lotadoPlayer===true){
+      if(somaPc>somaDoJogador){
+          vence.textContent="Ratão venceu!";
+      }else if(somaPc<somaDoJogador){
+          vence.textContent="Beto Carneiro venceu!";  
+      }else if(somaPc===somaDoJogador){
+          vence.textContent="Empate!";
+      }else{
+          vence.textContent="Algo deu errado!";
+      }
+  }
+}
+
+export {giraDado,getTabuleiro,jogada,somaDasColunas,comparaElimina,quemVenceu};
