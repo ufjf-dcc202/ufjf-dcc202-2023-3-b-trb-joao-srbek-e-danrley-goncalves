@@ -1,23 +1,22 @@
+import {mostraNaTela} from './Tela.js'
+ 
 const tabuleiro = {
   'bot': [
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0]
+    [null, null, null],
+    [null, null, null],
+    [null, null, null]
   ],
   'player': [
     [0, 0, 0],
     [0, 0, 0],
-    [0, 0, 0]
+    [0, 0, 0] 
 ]
 }
 
-/*function trocaTurno(vezPlayer){
-    if (vezPlayer === true) {
-      vezPlayer = false;
-    }else{
-      vezPlayer = true;
-    }
-}*/
+let xBot=0;
+let yBot=0;
+let xPlayer=0;
+let yPlayer=0;
 
 //const dado = document.querySelector("dado");
 
@@ -37,10 +36,11 @@ function jogada(valor, espacos,espacos2, turnoJogador) {
     do{
       linha = Math.floor(Math.random() * 3);
       coluna = Math.floor(Math.random() * 3);
-    }while (tabuleiro.bot[linha][coluna] !== 0);
+    }while (tabuleiro.bot[linha][coluna] !== null);
 
     tabuleiro.bot[linha][coluna] = valor;
-
+    yBot=coluna;
+    xBot=linha;
     let index = linha * 3 + coluna;
     espacos[index].textContent = tabuleiro.bot[linha][coluna];
   }else{
@@ -58,30 +58,48 @@ function jogada(valor, espacos,espacos2, turnoJogador) {
         switch(espacosInt){
           case 0: tabuleiro.player[0][0] = valor;
           espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[0][0];
+          xPlayer=0;
+          yPlayer=0;
           break;
           case 1: tabuleiro.player[0][1] = valor;
           espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[0][1];
+          xPlayer=0;
+          yPlayer=1;
           break;
           case 2: tabuleiro.player[0][2] = valor;
           espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[0][2];
+          xPlayer=0;
+          yPlayer=2;
           break;
           case 3: tabuleiro.player[1][0] = valor;
           espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[1][0];
+          xPlayer=1;
+          yPlayer=0;
           break;
           case 4: tabuleiro.player[1][1] = valor;
           espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[1][1];
+          xPlayer=1;
+          yPlayer=1;
           break;
           case 5: tabuleiro.player[1][2] = valor;
           espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[1][2];
+          xPlayer=1;
+          yPlayer=2;
           break;
           case 6: tabuleiro.player[2][0] = valor;
           espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[2][0];
+          xPlayer=2;
+          yPlayer=0;
           break;
           case 7: tabuleiro.player[2][1] = valor;
           espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[2][1];
+          xPlayer=2;
+          yPlayer=1;
           break;
           default: tabuleiro.player[2][2] = valor;
           espacos2[event.target.dataset.espacos].textContent = tabuleiro.player[2][2];
+          xPlayer=2;
+          yPlayer=2;
           break;
         }
     });
@@ -89,11 +107,11 @@ function jogada(valor, espacos,espacos2, turnoJogador) {
   }
 }
 
-function somaDasColunas(posicao,somaColuna,turnoAtual) {
+function somaDasColunas(posicao,posiTotal,somaColuna,somaTotBot,somaTotPlayer,turnoAtual) {
   if(turnoAtual === false){
     for(let j=0;j<3;j++){
       somaColuna = 0;
-      if(tabuleiro.bot[0][j]!==0 || tabuleiro.bot[1][j]!==0 || tabuleiro.bot[2][j]!==0){
+      if(tabuleiro.bot[0][j]!==null || tabuleiro.bot[1][j]!==null || tabuleiro.bot[2][j]!==null){
         if(tabuleiro.bot[0][j]===tabuleiro.bot[1][j] && tabuleiro.bot[0][j]===tabuleiro.bot[2][j] && tabuleiro.bot[1][j]===tabuleiro.bot[2][j]){
           somaColuna = tabuleiro.bot[0][j]*3 + tabuleiro.bot[1][j]*3 + tabuleiro.bot[2][j]*3;
         }else if(tabuleiro.bot[0][j]===tabuleiro.bot[2][j]){
@@ -105,11 +123,15 @@ function somaDasColunas(posicao,somaColuna,turnoAtual) {
         }else{
           somaColuna = tabuleiro.bot[0][j] + tabuleiro.bot[1][j] + tabuleiro.bot[2][j];
         }
+        somaTotBot += somaColuna;
+      posicao[j].textContent= somaColuna;
+      posiTotal[0].textContent = somaTotBot;
+      }else{
+        posicao[j].textContent= 0;
+        posiTotal[0].textContent = 0;
       }
-    posicao[j].textContent= somaColuna;
     }
-  }
-  if(turnoAtual === true){
+  }else{
     for(let j=0;j<3;j++){
       somaColuna = 0;
       if(tabuleiro.player[0][j]!==0 || tabuleiro.player[1][j]!==0 || tabuleiro.player[2][j]!==0){
@@ -124,23 +146,35 @@ function somaDasColunas(posicao,somaColuna,turnoAtual) {
         }else{
           somaColuna = tabuleiro.player[0][j] + tabuleiro.player[1][j] + tabuleiro.player[2][j];
         }
-      }
-    posicao[j+3].textContent= somaColuna;
-    }
-  }
-}
-
-function comparaElimina(turnoJogador) {
-
-    for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < 3; j++) {
-        if (tabuleiro.player[j][i] === tabuleiro.bot[j][i] && turnoJogador===true) {
-          tabuleiro.bot[j][i] = 0;
-        }
-        if (tabuleiro.bot[j][i] === tabuleiro.player[j][i] && turnoJogador===false) {
-            tabuleiro.player[j][i] = 0;
+        somaTotPlayer += somaColuna;
+      posicao[j+3].textContent= somaColuna;
+      posiTotal[1].textContent = somaTotPlayer;
+      }else{
+        posicao[j+3].textContent= 0;
+        posiTotal[1].textContent = 0;
       }
     }
   }
 }
-export { giraDado,getTabuleiro,jogada,somaDasColunas,comparaElimina};
+
+function comparaElimina(localBot,localPlayer, turnoJoga) {
+  if(turnoJoga === false){
+    for(let i=0;i<3;i++){
+      if(tabuleiro.bot[xBot][yBot] === tabuleiro.player[i][yBot]){
+        console.log(`${turnoJoga}`);
+        tabuleiro.player[i][yBot] = 0;
+        localPlayer[i*3+yBot].textContent = 0;
+      }
+    }
+  }else{
+    for(let i=0;i<3;i++){
+      if(tabuleiro.player[xPlayer][yPlayer] === tabuleiro.bot[i][yPlayer]){
+        console.log(`${turnoJoga}`);
+        tabuleiro.bot[i][yPlayer] = null;
+        localBot[i*3+yPlayer].textContent = null;
+      }
+    }
+  }
+}
+
+export {giraDado,getTabuleiro,jogada,somaDasColunas,comparaElimina};
