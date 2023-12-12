@@ -188,11 +188,17 @@ function quemVenceu(vence,lotadoBot,lotadoPlayer){
   }
   if(lotadoBot===true || lotadoPlayer===true){
       if(somaPc>somaDoJogador){
-          vence.textContent="Ratão venceu!";
+        setTimeout(function() {
+          window.location.href = "finalRatao.html";
+      }, 1000);
       }else if(somaPc<somaDoJogador){
-          vence.textContent="Beto Carneiro venceu!";  
+          setTimeout(function(){
+            window.location.href = "finalBeto.html"; 
+          }, 1000); 
       }else if(somaPc===somaDoJogador){
-          vence.textContent="Empate!";
+          setTimeout(function(){
+            window.location.href = "finalEmpate.html";
+          }, 1000);
       }else{
           vence.textContent="Algo deu errado!";
       }
