@@ -17,7 +17,7 @@ let somaBot=0;
 let somaPlayer=0;
 
 function musicaToca(){
-    const audio = new Audio("/musica/sinkingcity.mp3");
+    const audio = new Audio("musica/sinkingcity.mp3");
     audio.play();
     audio.volume = 2.5;
 }
