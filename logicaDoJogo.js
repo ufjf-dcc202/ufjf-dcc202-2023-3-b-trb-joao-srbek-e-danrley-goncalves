@@ -1,4 +1,5 @@
 import {mostraNaTela} from './Tela.js'
+import { btnIniciar } from './main.js';
  
 const tabuleiro = {
   'bot': [
@@ -188,18 +189,22 @@ function quemVenceu(vence,lotadoBot,lotadoPlayer){
   }
   if(lotadoBot===true || lotadoPlayer===true){
       if(somaPc>somaDoJogador){
+        btnIniciar.disabled = true;
         setTimeout(function() {
           window.location.href = "finalRatao.html";
       }, 1000);
       }else if(somaPc<somaDoJogador){
+        btnIniciar.disabled = true;
           setTimeout(function(){
             window.location.href = "finalBeto.html"; 
           }, 1000); 
       }else if(somaPc===somaDoJogador){
+        btnIniciar.disabled = true;
           setTimeout(function(){
             window.location.href = "finalEmpate.html";
           }, 1000);
       }else{
+        btnIniciar.disabled = true;
           vence.textContent="Algo deu errado!";
       }
   }

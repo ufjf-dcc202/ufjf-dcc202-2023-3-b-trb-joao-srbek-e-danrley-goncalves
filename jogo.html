@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ufjf-dcc202-2023-3-b-trb: Danrley Gonçalves e João Srbek</title>
+    <link rel="stylesheet" href="/estilos/globais.css" />
+    <link rel="stylesheet" href="/estilos/tabela.css" />
+    <script src="main.js" type="module"></script>
+  </head>
+
+  <body>
+    <main class="main">
+        
+      <div class="divisaoTela">
+         <table class="tabela" id="tabelaBot">
+          <tbody>
+            <tr>
+              <td class="espacoBot"></td>
+              <td class="espacoBot"></td>
+              <td class="espacoBot"></td>
+            </tr>
+            <tr>
+              <td class="espacoBot"></td>
+              <td class="espacoBot"></td>
+              <td class="espacoBot"></td>
+            </tr>
+            <tr>
+              <td class="espacoBot"></td>
+              <td class="espacoBot"></td>
+              <td class="espacoBot"></td>
+            </tr>
+            <tr id="soma">
+                <td style="color: rgb(201, 106, 18);" id="somaC" class="somas"></td>
+                <td style="color: rgb(201, 106, 18);" class="somas"></td>
+                <td style="color: rgb(201, 106, 18);" class="somas"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button id="iniciar">Jogar</button>
+
+        <div class="jogadores">
+
+          <div class="somaT">
+            <h2 class="total"></h2>
+            <h3 class="nome">Ratão</h3></div>
+
+          <div class="dadoCtn" id="dado" style="grid-column: 3;">
+            <span id="dado" ></span>
+          </div>
+        </div> 
+      </div>
+
+    <h1 style="color: rgb(187, 101, 204);" class="win"></h1>
+
+      <div class="divisaoTela"> 
+        <table class="tabela" id="tabelaUser">
+          <tbody>
+            <tr>
+            <tr id="soma">
+              <td id="somaC" style="color: rgb(201, 106, 18);" class="somas"></td>
+              <td id="somaC" style="color: rgb(201, 106, 18);" class="somas"></td>
+              <td id="somaC" style="color: rgb(201, 106, 18);" class="somas"></td>
+            </tr>
+              <td class="espacoUser" ><button name="button" class="btnUser" data-espacos="0"><p class="paragrafo"></p></button></td>
+              <td class="espacoUser"><button name="button" class="btnUser" data-espacos="1"><p class="paragrafo"></p></button></td>
+              <td class="espacoUser"><button name="button" class="btnUser" data-espacos="2"><p class="paragrafo"></p></button></td>
+            </tr>
+            <tr>
+              <td class="espacoUser"><button name="button" class="btnUser" data-espacos="3"><p class="paragrafo"></p></button></td>
+              <td class="espacoUser"><button name="button" class="btnUser" data-espacos="4"><p class="paragrafo"></p></button></td>
+              <td class="espacoUser"><button name="button" class="btnUser" data-espacos="5"><p class="paragrafo"></p></button></td>
+            </tr>
+            <tr>
+              <td class="espacoUser"><button name="button" class="btnUser" data-espacos="6"><p class="paragrafo"></p></button></td>
+              <td class="espacoUser"><button name="button" class="btnUser" data-espacos="7"><p class="paragrafo"></p></button></td>
+              <td class="espacoUser"><button name="button" class="btnUser" data-espacos="8"><p class="paragrafo"></p></button></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="jogadores">
+          <div class="somaT">
+
+            <h3 class="nome">Beto Carneiro</h3>
+            <h2 class="total"></h2>
+
+          </div>
+          <div class="dadoCtn" id="dado1">
+            <span style="color: azure;"></span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -43,3 +43,5 @@ function mostraNaTela(){
     dado=giraDado();
     quemVenceu(vencedor,cheioBot,cheioPlayer);
 }
+
+export{btnIniciar}
